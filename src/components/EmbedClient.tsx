@@ -48,7 +48,7 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
                     </ol>
  
                     <div className='mt-14'>
-                        <h1 className='text-lg font-medium mb-2 text-[#EC4899]'>Live Preview</h1>
+                        <h1 className='text-lg font-medium mb-2 '>Live Preview</h1>
                         <p className='text-sm text-zinc-500 mb-6'>This is how the chatbot will appear on your website</p>
  
                         <div className='rounded-xl border border-zinc-300 bg-white shadow-md overflow-hidden'>
