@@ -1,6 +1,6 @@
 (function () {
 
-     const api_Url = "https://lotus-support-ai.vercel.app/api/chat"
+    const api_Url = "http://localhost:3000/api/chat"
 
     const scriptTag = document.currentScript;
     const ownerId = scriptTag.getAttribute("data-owner-id")
@@ -156,23 +156,23 @@ sendBtn.onclick=async ()=>{
     })
     messageArea.appendChild(typing)
     messageArea.scrollTop=messageArea.scrollHeight
-    try {
-    const response=await fetch(api_Url,{
-        method:"POST",
-        headers:{"content-Type":"application/json"},
-        body:JSON.stringify({
-            ownerId,message:text
-        })
+try {
+const response=await fetch(api_Url,{
+    method:"POST",
+    headers:{"content-Type":"application/json"},
+    body:JSON.stringify({
+        ownerId,message:text
     })
+})
 
-    const data=await response.json()
-    messageArea.removeChild(typing)
-    addMessage("something went wrong","ai")
+const data=await response.json()
+messageArea.removeChild(typing)
+addMessage(data || "something went wrong","ai")
 
 } catch (error) {
-    console.log(error)
-    messageArea.removeChild(typing)
-    addMessage(data|| "something went wrong","ai")
+console.log(error)
+messageArea.removeChild(typing)
+addMessage("something went wrong","ai")
 }
 }
 
